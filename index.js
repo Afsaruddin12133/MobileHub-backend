@@ -30,8 +30,8 @@ console.log(uri)
             const products = await cursor.toArray();
             res.send(products)
         })
-        app.post('/product',(req,res)=>{
-            
+        app.get('/product',(req,res)=>{
+            res.send("make changes")
         })
       }
       finally {
