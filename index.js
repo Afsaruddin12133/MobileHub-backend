@@ -30,8 +30,10 @@ console.log(uri)
             const products = await cursor.toArray();
             res.send(products)
         })
-        app.get('/nai',(req,res)=>{
-            res.send("Hello Bangladesh")
+        app.post('/products',async(req,res)=>{
+           const newUser = req.body;
+           const result = await productCollection.insertOne(newUser)
+           res.send({result : "sucess"})
         })
         app.delete('/product/:id', async(req,res)=>{
           const productId = req.params.id;
