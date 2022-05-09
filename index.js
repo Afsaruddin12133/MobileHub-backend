@@ -30,6 +30,9 @@ console.log(uri)
             const products = await cursor.toArray();
             res.send(products)
         })
+        app.post('/product',(req,res)=>{
+            
+        })
       }
       finally {
     
