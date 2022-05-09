@@ -1,5 +1,5 @@
 const express = require('express')
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express()
 require('dotenv').config()
 const cors = require('cors')
@@ -30,8 +30,14 @@ console.log(uri)
             const products = await cursor.toArray();
             res.send(products)
         })
-        app.get('/product',(req,res)=>{
-            res.send("make changes")
+        app.get('/nai',(req,res)=>{
+            res.send("Hello Bangladesh")
+        })
+        app.delete('/product/:id', async(req,res)=>{
+          const productId = req.params.id;
+          const query = {_id : ObjectId(id)};
+          const result = await productCollection.deleteOne(query)
+          res.send(result);
         })
       }
       finally {
